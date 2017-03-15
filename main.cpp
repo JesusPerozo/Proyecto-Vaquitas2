@@ -10,7 +10,7 @@
 #include <string.h>
 #include <iomanip>
 using namespace std;
-
+//Soy un dios y hago este cambio :v
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void pausarBorrar(){
