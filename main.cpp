@@ -9,8 +9,10 @@
 #include <stdio.h>
 #include <string.h>
 #include <iomanip>
-
 using namespace std;
+
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void pausarBorrar(){
 	system("pause");
 	system("cls");
@@ -76,6 +78,7 @@ void imprimirError(string n){
 	cout<<n<<endl<<endl;
 	pausarBorrar();	
 }
+
 int main(int argc, char** argv) {
 	cout<<"COMPILAAAA!!!"<<endl<<endl; 
 	pausarBorrar();
@@ -194,9 +197,235 @@ int main(int argc, char** argv) {
 				
 				
 				case '2':
-					cout<<"En construccion..."<<endl;
-                    pausarBorrar();	
-			    	
+					system("cls");
+					if(cuentaVaca==0){
+						cout<<"No hay vaquitas en la lista."<<endl;
+						pausarBorrar();
+					}else{
+					do{
+					 
+						cout<<"Por favor ingrese el numero correspondiente a la tarea que desea realizar\n\n"<<endl;
+						cout<<"1) Ordenar por nombre\n\n2)Ordenar por raza\n\n3) Ordenar por peso\n\n4) Ordenar por litros de leche\n\n5) Volver al menu anterior"<<endl<<endl<<"Opcion: ";
+						cin>>g;
+				   		 if(g.size()>1){
+        	       		 	g[0]=6;
+		           		}
+                   		switch (g[0]){
+                    		case '1':
+                    			system("cls");
+                    			cout<<"Lista ordenada por nombre\n\n";
+					      		for (int i = 0; i < cuentaVaca; i++) {
+	                     	 	    for (int j = 0; j <= cuentaVaca-2; j++) {
+	                        	    	string aux1=listaVaca[j].getNombre();
+	                        	    	string aux2=listaVaca[j+1].getNombre();
+	                        	  	 	char comparar1[15];//=listaVaca[j].getNombre();
+						   	   		   	char comparar2[15];//=listaVaca[j+1].getNombre();
+						   		   		int tam1=aux1.size();
+				   		   			   	int tam2=aux2.size();
+				   		   			   	for(int x=0;x<=tam1;x++){
+                    	         	   	  	comparar1[x]=aux1[x];
+                    	       	  	    }
+						    	  	   	for(int x=0;x<=tam2;x++){
+	                      	  		   	   	comparar2[x]=aux2[x];
+                       	     		    } 	                     	 	    	
+	                                 	if (strncmp(comparar1, comparar2,15)>0){
+	                 	    	 	   			auxiliar = listaVaca[j];
+		             	   		       			listaVaca[j] =listaVaca[j+1];
+		            			           		listaVaca[j+1] = auxiliar;
+			        	    	        }
+	                	    	    } 
+                   	       		}
+							    imprimirTitulo("Nombre","Raza","Peso","Litros"); 
+								for (int i=0;i<cuentaVaca;i++){
+	                                cout <<setw(15)<<left<< listaVaca[i].getNombre()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getRaza()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getPeso()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getLitro()<<endl;			    
+                            	}
+                            pausarBorrar();                   		
+                    		break;
+                    		case '2':
+                    			system("cls");
+                    			cout<<"Lista ordenada por raza\n\n";
+					      		for (int i = 0; i < cuentaVaca; i++) {
+	                     	 	    for (int j = 0; j <= cuentaVaca-2; j++) {
+	                        	    	string aux1=listaVaca[j].getRaza();
+	                        	    	string aux2=listaVaca[j+1].getRaza();
+	                        	  	 	char comparar1[15];//=listaVaca[j].getNombre();
+						   	   		   	char comparar2[15];//=listaVaca[j+1].getNombre();
+						   		   		int tam1=aux1.size();
+				   		   			   	int tam2=aux2.size();
+				   		   			   	for(int x=0;x<=tam1;x++){
+                    	         	   	  	comparar1[x]=aux1[x];
+                    	       	  	    }
+						    	  	   	for(int x=0;x<=tam2;x++){
+	                      	  		   	   	comparar2[x]=aux2[x];
+                       	     		    } 	                     	 	    	
+	                                 	if (strncmp(comparar1, comparar2,15)>0){
+	                 	    	 	   			auxiliar = listaVaca[j];
+		             	   		       			listaVaca[j] =listaVaca[j+1];
+		            			           		listaVaca[j+1] = auxiliar;
+			        	    	        }
+	                	    	    } 
+                   	       		}
+				       		  	for(int x =0;x<cuentaVaca;x=x+rep){  
+				   	  	 		   	rep=0;  	
+				       	  	 		for(int y = x; y<cuentaVaca;y++){
+				       			   		string h=listaVaca[y+1].getRaza();
+				      	 	   			string g=listaVaca[x].getRaza();
+				      	 		   		if(g==h){
+				      	 		   			rep++;
+				   				   		}
+				   			   		}
+					   			   	if(rep>0){	
+					   		  	 		for (int i = 0 ; i < rep; i++) {
+	                           		 	 	for (int j = x; j <=x+rep-1; j++) {
+	                           		 	  		string aux1=listaVaca[j].getNombre();
+	                            		  		string aux2=listaVaca[j+1].getNombre();
+	                            		 	 	char comparar1[15];//=listaVaca[j].getNombre();
+						   	   				   	char comparar2[15];//=listaVaca[j+1].getNombre();
+						   	   			   		int tam1=aux1.size();
+						   	   				   	int tam2=aux2.size();
+						   		   			   	for(int x=0;x<=tam1;x++){
+	                       		      	     	  	comparar1[x]=aux1[x];
+                            	    	  	    }
+							    		  	   	for(int x=0;x<=tam2;x++){
+	                            		  	      	comparar2[x]=aux2[x];
+                              	     		    }  	                           		
+	                   		     	   		    if (strncmp(comparar1, comparar2,15)>0){
+	                    	     	   			    auxiliar = listaVaca[j];
+		               	            		   	   	listaVaca[j] =listaVaca[j+1];
+		         	   		          	           	listaVaca[j+1] = auxiliar;
+			           	            	 	    }
+	                    	           	    } 
+                          	        	}
+						   	   		}else{
+							   	   		rep=1;
+							      	}		
+				   			    }                   	       		
+							     imprimirTitulo("Raza","Nombre","Peso","Litros"); 
+								for (int i=0;i<cuentaVaca;i++){
+	                                cout <<setw(15)<<left<< listaVaca[i].getRaza()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getNombre()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getPeso()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getLitro()<<endl;			    
+                            	}
+                                pausarBorrar();                      			
+                   		 	break;
+                    	
+                    		case '3'://ORDENA POR PESO 3
+                    			system("cls");
+                    			cout<<"Lista ordenada por peso\n"<<endl;
+					      		for (int i = 0; i < cuentaVaca; i++) {
+					      			
+					      			
+	                     	 	    for (int j = 0; j <= cuentaVaca-2; j++) {
+	                   	   		   		if (listaVaca[j].getPeso() > listaVaca[j+1].getPeso()){
+	                    	     	   			    auxiliar = listaVaca[j];
+		               	            		   	   	listaVaca[j] =listaVaca[j+1];
+		         	   		          	           	listaVaca[j+1] = auxiliar;
+			        	    	        }
+	                	    	    } 
+                   	       		}
+				       		  	for(int x =0;x<cuentaVaca;x=x+rep){  
+				   	  	 		   	rep=0;  	
+				       	  	 		for(int y = x; y<cuentaVaca;y++){
+				       			   		float h=listaVaca[y+1].getPeso();
+				      	 	   			float g=listaVaca[x].getPeso();
+				      	 		   		if(g==h){
+				      	 		   			rep++;
+				   				   		}
+				   			   		}
+					   			   	if(rep>0){	
+					   		  	 		for (int i = 0 ; i < rep; i++) {
+	                           		 	 	for (int j = x; j <=x+rep-1; j++) {
+	                           		 	  		string aux1=listaVaca[j].getNombre();
+	                            		  		string aux2=listaVaca[j+1].getNombre();
+	                            		 	 	char comparar1[15];//=listaVaca[j].getNombre();
+						   	   				   	char comparar2[15];//=listaVaca[j+1].getNombre();
+						   	   			   		int tam1=aux1.size();
+						   	   				   	int tam2=aux2.size();
+						   		   			   	for(int x=0;x<=tam1;x++){
+	                       		      	     	  	comparar1[x]=aux1[x];
+                            	    	  	    }
+							    		  	   	for(int x=0;x<=tam2;x++){
+	                            		  	      	comparar2[x]=aux2[x];
+                              	     		    }  	                           		
+	                   		     	   		    if (strncmp(comparar1, comparar2,15)>0){
+	                    	     	   			    auxiliar = listaVaca[j];
+		               	            		   	   	listaVaca[j] =listaVaca[j+1];
+		         	   		          	           	listaVaca[j+1] = auxiliar;
+			           	            	 	    }
+	                    	           	    } 
+                          	        	}
+						   	   		}else{
+							   	   		rep=1;
+							      	}		
+				   			    }
+				   			    imprimirTitulo("Peso","Nombre","Raza","Litros");
+								for (int i=0;i<cuentaVaca;i++){
+	                                cout <<setw(15)<<left<< listaVaca[i].getPeso()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getNombre()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getRaza()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getLitro()<<endl;			    
+                            	}
+                            pausarBorrar();   				   			    
+				   			break;
+							case '4':
+								system("cls");
+								cout<<"Lista ordenada por litros de leche\n\n";
+					   		   	for (int i = 0; i < cuentaVaca; i++) {
+	                     	 	    for (int j = 0; j <= cuentaVaca-2; j++) {
+	                   	   		   		if (listaVaca[j].getLitro() > listaVaca[j+1].getLitro()){
+	                 	  			   	   		auxiliar = listaVaca[j];
+		             	 		           		listaVaca[j] =listaVaca[j+1];
+		            			           		listaVaca[j+1] = auxiliar;
+			        	   		        }
+	                	    	    }  
+                   	       		}
+				    	     	for(int x =0;x<cuentaVaca;x=x+rep){  
+				   	  	 		   	rep=0;  	
+				       		   		for(int y = x; y<cuentaVaca;y++){
+				       			   		float h=listaVaca[y+1].getLitro();
+				      	 		   		float g=listaVaca[x].getLitro();
+				      	 	   			if(g==h){
+				      	 	   				rep++;
+				   				   		}
+				   		   			}
+					   			   	if(rep>0){	
+					   			   		for (int i = 0 ; i < rep; i++) {
+	                        	    	 	for (int j = x; j <=x+rep-1; j++) {
+	                        	    	  		string aux1=listaVaca[j].getNombre();
+	                        	    	  		string aux2=listaVaca[j+1].getNombre();
+	                        	    	 	 	char comparar1[15];//=listaVaca[j].getNombre();
+						   		   			   	char comparar2[15];//=listaVaca[j+1].getNombre();
+						   		   		   		int tam1=aux1.size();
+						   		   			   	int tam2=aux2.size();
+						   		   			   	for(int x=0;x<=tam1;x++){
+	                    	         	     	  	comparar1[x]=aux1[x];
+                    	            	  	    }
+								    	  	   	for(int x=0;x<=tam2;x++){
+	                            	  		   	   	comparar2[x]=aux2[x];
+                              	     		    }  	                           		
+	                        	   			    if (strncmp(comparar1, comparar2,15)>0){
+	                         	   				    auxiliar = listaVaca[j];
+		                           			   	   	listaVaca[j] =listaVaca[j+1];
+		         	             		           	listaVaca[j+1] = auxiliar;
+			                     	  	 	    }
+	                            	   	    } 
+                                	  	}
+					   		   		}else{
+							   	   		rep=1;
+							      	}		
+				   			    }
+                   	    	   	imprimirTitulo("Litros","Nombre","Raza","Peso");
+								for (int i=0;i<cuentaVaca;i++){
+	                                cout <<setw(15)<<left<<listaVaca[i].getLitro()<<setw(15)<<left<< listaVaca[i].getNombre()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getRaza()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getPeso()<<setfill(' ')<<setw(15)<<left<<listaVaca[i].getLitro()<<endl;			    
+                            	}
+                            pausarBorrar();                      	    	   	
+							break;
+							case '5':
+								g[0]=5;
+							break;
+							default:
+						    system("cls");
+					        cout<<"Opcion no valida"<<endl;
+				    	    pausarBorrar();	
+						}//CIERRA EL SWITCH SECUNDARIO
+			    	}while(g[0]!=5);
+			    	system("cls");
+			}
 				break;
 				case '3':
 					system("cls");
@@ -214,5 +443,3 @@ int main(int argc, char** argv) {
 	return 0;
 	
 }
-}
-
