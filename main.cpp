@@ -10,7 +10,7 @@
 #include <string.h>
 #include <iomanip>
 using namespace std;
-//Soy un dios y hago este cambio :v
+
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 void pausarBorrar(){
@@ -45,20 +45,7 @@ bool entradaNombre(char *entrada){
 	}
 	return valida;
 }  
-bool entradaRaza(string entrada){
-    bool valida=true;
-	int tam=entrada.size();
-	if(tam>15){
-		valida=false;
-	}else{
-		for(int i=0;i<tam;i++){
-			if((entrada[i]<65||entrada[i]>90) ){
-			    valida=false;
-	 	  	}
-		}
-	}
-	return valida;
-}
+
 bool entradaPeso(string entrada){
     bool valida=true;
     int tam=entrada.size();   
@@ -136,14 +123,33 @@ int main(int argc, char** argv) {
 				        }while(bandera==0);
 				    	system("cls");    	
 					    do{
+					    	fflush(stdin);
 					    	bandera=0;					    	
-					       	cout<<"Ingrese la raza de la vaquita en mayuscula: ";
+					       	cout<<"Ingrese el numero que corresponde a la raza de su vaquita:\n\n";
+					       	cout<<"1) Guernsey\n\n2) Jersey\n\n3) Pasiega\n\n4) Simmental\n\nOpcion: ";
 					       	cin>>temporalS;
-					   		if(entradaRaza(temporalS)==false){
-		    					imprimirError("ERROR!!! La raza de la vaquita solo debe contener letras\ny tiene un limite de 15 caracteres.\nIngrese el dato requerido correctamente");
+					       	
+					   		if(temporalS=="1"){
+					   			temporalS="GUERNSEY";
+					   			listaVaca[cuentaVaca].setRaza(temporalS);
+					   			bandera=1;
+					   			
+							}else if(temporalS=="2"){
+								temporalS="JERSEY";
+					   			listaVaca[cuentaVaca].setRaza(temporalS);
+					   			bandera=1;
+							}else if(temporalS=="3"){
+								temporalS="PASIEGA";
+					   			listaVaca[cuentaVaca].setRaza(temporalS);
+					   			bandera=1;
+							}else if(temporalS=="4"){
+								temporalS="SIMMENTAL";
+					   			listaVaca[cuentaVaca].setRaza(temporalS);
+					   			bandera=1;
 							}else{
-								bandera=1;
-								listaVaca[cuentaVaca].setRaza(temporalS);		
+								system("cls");
+         						cout<<"Seleccione una opcion valida\n\n";
+         						pausarBorrar();
 							}
 				        }while(bandera==0);					        	    	
 					   	system("cls");
