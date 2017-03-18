@@ -209,7 +209,7 @@ int main(int argc, char** argv) {
 						pausarBorrar();
 					}else{
 					do{
-					 
+					 	fflush(stdin); 
 						cout<<"Por favor ingrese el numero correspondiente a la tarea que desea realizar\n\n"<<endl;
 						cout<<"1) Ordenar por nombre\n\n2)Ordenar por raza\n\n3) Ordenar por peso\n\n4) Ordenar por litros de leche\n\n5) Volver al menu anterior"<<endl<<endl<<"Opcion: ";
 						cin>>g;
